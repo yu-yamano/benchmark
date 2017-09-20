@@ -27,7 +27,6 @@ function createCsv($readFile, $csvFile)
     while (!feof($accesslog)) {
         $line = str_getcsv(fgets($accesslog), ' ');
 
-        // 始めと終わりを入れ替える
         $first = $line[0];
         $last = $line[count($line) - 1];
         $line[0] = $last;
