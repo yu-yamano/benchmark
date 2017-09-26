@@ -1,3 +1,4 @@
+#!/usr/local/opt/php70/bin/php
 <?php
 /**
  * Created by PhpStorm.
@@ -6,10 +7,13 @@
  * Time: 9:10
  */
 ini_set('memory_limit', '2048M');
-
 $time_start = microtime(true);
 $readFile = '/Users/usr0301564/gmo-am/access_log_ad/access_log.20170915_09_ad01';
-$csvFile = '/Users/usr0301564/gmo-am/php/test.csv';
+$file = 'test.csv';
+if ($argv[1]) {
+    $file = "test{$argv[1]}.csv";
+}
+$csvFile = "/Users/usr0301564/gmo-am/php/{$file}";
 createCsv($readFile, $csvFile);//}
 $time = (microtime(true) - $time_start);
 echo "{$time} 秒" . "\n";
